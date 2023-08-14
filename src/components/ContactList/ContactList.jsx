@@ -4,11 +4,11 @@ import css from 'components/ContactList/ContactList.module.css';
 const ContactList = ({ contacts, onDelete }) => {
   return (
     <ul className={css.contactList}>
-      {contacts.map(({ id, name, number }) => {
+      {contacts.map(({ id, alias, number }) => {
         return (
           <li key={id}>
             <span>
-              {name}: {number}
+              {alias}: {number}
             </span>
             <button type="button" onClick={() => onDelete(id)}>
               Delete
@@ -24,7 +24,7 @@ ContactList.propTypes = {
   contacts: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
+      alias: PropTypes.string.isRequired,
       number: PropTypes.string.isRequired,
     })
   ).isRequired,
